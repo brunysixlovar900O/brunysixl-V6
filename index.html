@@ -108,7 +108,8 @@
 	 </html>
 
 
-		 <html lang="en">
+
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,9 +124,7 @@
 
     canvas {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative; /* Change to relative */
         z-index: -1;
     }
 </style>
@@ -216,13 +215,3 @@
 </script>
 </body>
 </html>
-
-	 <style>		 
-canvas {
-    display: block;
-    position: fixed; /* Change from absolute to fixed */
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-</style>
