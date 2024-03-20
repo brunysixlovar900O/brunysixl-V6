@@ -228,18 +228,25 @@ button:hover {
 }
 
 
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: black;
-        overflow: hidden;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+}
 
-    canvas {
-        display: block;
-        position: fixed; /* Change from absolute to fixed */
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
+#container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
