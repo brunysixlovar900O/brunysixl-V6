@@ -154,42 +154,111 @@
 </html>	
 
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Particle Background</title>
 <style>
     body {
         margin: 0;
         padding: 0;
-        overflow: hidden;
         background-color: black;
+        overflow: hidden;
     }
 
-    .particles {
+    canvas {
+        display: block;
         position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 160"%3E%3Cdefs%3E%3ClinearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%"%3E%3Cstop offset="0%" style="stop-color:white;stop-opacity:1" /%3E%3Cstop offset="100%" style="stop-color:black;stop-opacity:1" /%3E%3C/linearGradient%3E%3Cfilter id="blur" width="200%" height="200%" x="-50%" y="-50%"%3E%3CfeGaussianBlur in="SourceGraphic" stdDeviation="2" /%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx="50%" cy="50%" r="69" fill="url(%23gradient)" filter="url(%23blur)"%3E%3Canimate attributeName="r" from="50" to="69" dur="10s" repeatCount="indefinite" /%3E%3Canimate attributeName="opacity" from="1" to="0" dur="10s" repeatCount="indefinite" /%3E%3C/circle%3E%3C/svg%3E');
-        background-size: 800% 800%;
-        animation: particles 15s ease infinite;
-    }
-
-    @keyframes particles {
-        0% {
-            background-position: 0% 0%;
-        }
-        50% {
-            background-position: 100% 100%;
-        }
-        100% {
-            background-position: 0% 0%;
-        }
+        top: 0;
+        left: 0;
+        z-index: -1;
     }
 </style>
 </head>
 <body>
-<div class="particles"></div>
+<canvas id="canvas"></canvas>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray;
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+
+        update() {
+            if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+                this.directionY = -this.directionY;
+            }
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        const numberOfParticles = 100;
+        for (let i = 0; i < numberOfParticles; i++) {
+            const size = Math.random() * 5 + 1;
+            const x = Math.random() * (innerWidth - size * 2) + size;
+            const y = Math.random() * (innerHeight - size * 2) + size;
+            const directionX = (Math.random() - 0.5) * 0.5;
+            const directionY = (Math.random() - 0.5) * 0.5;
+            const color = 'white';
+
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+        }
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+    }
+
+    init();
+    animate();
+
+    window.addEventListener('resize', function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    });
+
+    canvas.addEventListener('click', function (event) {
+        const size = Math.random() * 5 + 1;
+        const x = event.clientX;
+        const y = event.clientY;
+        const directionX = (Math.random() - 0.5) * 0.5;
+        const directionY = (Math.random() - 0.5) * 0.5;
+        const color = 'white';
+
+        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+    });
+</script>
 </body>
 </html>
