@@ -92,47 +92,14 @@
 	
  
 <div>
-<button onclick="openGame()">Open About:Blank Tab.</button>
-      <script>
-      var urlObj = new window.URL(window.location.href);
-        var url = window.location;
-        
-        if (url) {
-            var win;
-        
-            document.querySelector('button').onclick = function() {
-                if (win) {
-                    win.focus();
-                } else {
-                    win = window.open();
-                    win.document.body.style.margin = '0';
-                    win.document.body.style.height = '100vh';
-                    var iframe = win.document.createElement('iframe');
-                    iframe.style.border = 'none';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.margin = '0';
-                    iframe.src = url;
-                    win.document.body.appendChild(iframe);
-                    window.location.replace("https://ixl.com");
-        
-                    var interval = setInterval(function() {
-                        if (win.closed) {
-                            clearInterval(interval);
-                            win = undefined;
-        
-                        }
-                    }, 500);
-        
-        
-                }
-            };
-        }
-        </script>
+<button onclick="window.location.href='/';">Retrun Home.</button>
 
  <hr class="short-centered">
 <h2>Our Main Arcade Selection.</h2>	
-   
+         <button onclick="window.location.href='/arcade/slope.html';">slope</button>
+	 <button onclick="window.location.href='/arcade/1on1soccer.html';">1 on 1 soccer</button>
+	 <button onclick="window.location.href='/arcade/gunmayhem2.html';">gun mayhem 2</button>
+	 <button onclick="window.location.href='/arcade/run.html';">run</button>
 	
 	 <hr class="short-centered">
     <a href="https://www.freecounterstat.com" title="web counter"><img src="https://counter7.optistats.ovh/private/freecounterstat.php?c=cx88tzmqauk43lts3flwb7zql1tqg946" border="0" title="web counter" alt="web counter"></a>
