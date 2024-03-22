@@ -215,7 +215,7 @@ p.brunys img:hover {
 
 
 button {
-  padding: 15px 25px; /* Increased padding for bigger buttons */
+  padding: 8px 18px;
   background-color: black;
   color: white;
   border: 1px solid white;
