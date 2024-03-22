@@ -112,7 +112,7 @@
 	<button onclick="window.location.href='/arcade/btd3.html';">btd 3</button>
 	<button onclick="window.location.href='/arcade/btd4.html';">btd 4</button>
 <hr class="short-centered">
-
+<h6> </h6>
     <a href="https://www.freecounterstat.com" title="web counter"><img src="https://counter7.optistats.ovh/private/freecounterstat.php?c=cx88tzmqauk43lts3flwb7zql1tqg946" border="0" title="web counter" alt="web counter"></a>
 
 	    
@@ -121,6 +121,7 @@
 </html>	
 
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -131,7 +132,6 @@
         margin: 0;
         padding: 0;
         background-color: black;
-        overflow: hidden;
     }
 
     canvas {
@@ -149,7 +149,7 @@
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.documentElement.scrollHeight;
 
     let particlesArray;
 
@@ -189,7 +189,7 @@
         for (let i = 0; i < numberOfParticles; i++) {
             const size = Math.random() * 5 + 1;
             const x = Math.random() * (innerWidth - size * 2) + size;
-            const y = Math.random() * (innerHeight - size * 2) + size;
+            const y = Math.random() * (canvas.height - size * 2) + size;
             const directionX = (Math.random() - 0.5) * 0.5;
             const directionY = (Math.random() - 0.5) * 0.5;
             const color = 'white';
@@ -200,7 +200,7 @@
 
     function animate() {
         requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        ctx.clearRect(0, 0, innerWidth, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
@@ -212,7 +212,7 @@
 
     window.addEventListener('resize', function () {
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = document.documentElement.scrollHeight;
         init();
     });
 
