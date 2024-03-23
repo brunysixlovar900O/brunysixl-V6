@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -108,58 +109,65 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .embed-container {
+            flex: 1;
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: black;
-        }
-
-        #container {
             position: relative;
-            text-align: center;
         }
-
-        #image {
+        iframe {
+            z-index: 1;
+        }
+        img {
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             width: 40px;
             height: 40px;
-            z-index: 1;
-            transition: transform 0.3s;
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
-
-        #image:hover {
-            transform: translate(-50%, -50%) scale(1.1);
+        img:hover {
+            transform: translateX(-50%) scale(1.2);
         }
-
-        #iframe {
-            width: 100%;
-            height: 400px; /* Adjust height as needed */
-            border: none;
-            z-index: 0;
+        footer {
+            background-color: transparent;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <a href="/arcade.html.html"><img id="image" src="/imgs/brunysixlgif.gif" alt="Clickable Image"></a>
-        <iframe id="iframe" src="/games/1on1soccer"></iframe>
+    <a href="/arcade.html">
+        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
+    </a>
+    <div class="embed-container">
+        <iframe src="/games/1on1soccer" width="1000" height="550"></iframe>
     </div>
+    
 </body>
 </html>
 
-
 </html>
+
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
   <meta name="theme-color" content="#000000">
