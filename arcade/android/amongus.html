@@ -30,12 +30,6 @@
 </html>
 
 
-<html>
-<head>
-  <link href='brunysixl.css' rel='stylesheet'>
-</head>
-<body>
-
     <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -144,128 +138,64 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-
+        .embed-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        iframe {
+            z-index: 1;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        img:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
         footer {
-            background-color: rgba(18, 18, 18, 0.90);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .footer-content img:first-child {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .footer-content img:last-child {
-            width: 140px;
-            height: 27.5px;
-            margin-left: 10px;
-        }
-
-        /* Style for the fullscreen button */
-        .fullscreen-button {
-            background-color: #000;
+            background-color: transparent;
             color: #fff;
-            border: 2px solid #000;
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .fullscreen-button:hover {
-            transform: scale(1.1);
-        }
-
-        #fullscreen-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-        }
-
-        #fullscreen-enter {
-            margin-right: 10px;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <footer>
-        <div class="footer-content">
-            <a href="https://www.yourwebsite.com"><img src="/imgs/brunysixlgif.gif" alt="brunysixl"></a>
-            <img src="/imgs/brunysixlfont.png" alt="brunysixl">
-        </div>
-    </footer>
-
-    <div id="fullscreen-buttons">
-        <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
-        <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+    <a href="/arcade.html">
+        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
+    </a>
+    <div class="embed-container">
+        <iframe src="https://szvyonthefent.dob.jp/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer" width="1000" height="550"></iframe>
     </div>
-
-    <iframe src="https://brunysixlgames.netlify.app/games/amongus/" style="width:100%; height:100vh; border:none;"></iframe>
-
-    <script>
-        var fullscreenEnterButton = document.getElementById('fullscreen-enter');
-        var fullscreenExitButton = document.getElementById('fullscreen-exit');
-
-        fullscreenEnterButton.addEventListener('click', function() {
-            var element = document.documentElement;
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { /* Firefox */
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { /* IE/Edge */
-                element.msRequestFullscreen();
-            }
-
-            fullscreenEnterButton.style.display = 'none';
-            fullscreenExitButton.style.display = 'block';
-        });
-
-        fullscreenExitButton.addEventListener('click', function() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { /* Firefox */
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { /* IE/Edge */
-                document.msExitFullscreen();
-            }
-
-            fullscreenEnterButton.style.display = 'block';
-            fullscreenExitButton.style.display = 'none';
-        });
-    </script>
+    
 </body>
 </html>
 
+</html>
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
