@@ -149,20 +149,22 @@
 
         /* Style for the fullscreen button */
         .fullscreen-button, .custom-button {
-            background-color: #000;
-            color: #fff;
-            border: 2px solid #fff; /* Added white border */
-            padding: 10px 20px;
+            padding: 12px 22px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
             cursor: pointer;
             display: inline-block;
             margin-right: 10px; /* Added for spacing */
             margin-bottom: 10px; /* Added for spacing */
-            border-radius: 5px; /* Rounded corners */
+            transition: transform 0.1s, box-shadow 0.3s;
         }
 
         /* Style for button hover effect */
         .fullscreen-button:hover, .custom-button:hover {
             transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
         }
 
         /* Center the buttons */
@@ -186,7 +188,7 @@
         <div id="button-container"> <!-- Container for the buttons -->
             <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
             <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
-            <button id="new-button" class="custom-button">Return To Arcade</button> <!-- New button -->
+            <button id="new-button" class="custom-button">Retrun To Arcade</button> <!-- New button -->
         </div>
     </footer>
 
