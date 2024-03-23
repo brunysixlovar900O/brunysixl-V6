@@ -147,6 +147,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         footer {
@@ -176,29 +177,18 @@
         }
 
         /* Style for the fullscreen button */
-        .fullscreen-button {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            display: inline-block;
-            margin-right: 10px; /* Added for spacing */
-        }
-
-        /* Style for the new button */
-        .custom-button {
+        .fullscreen-button, .custom-button {
             background-color: #000;
             color: #fff;
             border: 2px solid #fff; /* Added white border */
             padding: 10px 20px;
             cursor: pointer;
             display: inline-block;
+            margin-right: 10px; /* Added for spacing */
         }
 
         /* Style for button hover effect */
-        .custom-button:hover {
+        .fullscreen-button:hover, .custom-button:hover {
             transform: scale(1.1); /* Scale up on hover */
         }
     </style>
@@ -209,16 +199,15 @@
             <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
         </div>
-        <div id="embed-container"></div>
+        <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
+            <iframe src="https://brunysixlgames.netlify.app/games/index.html" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
         <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
         <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
-        <button id="new-button" class="custom-button">New Button</button> <!-- New button -->
+        <button id="new-button" class="custom-button">Return To Arcade</button> <!-- New button -->
     </footer>
 
     <script>
-        var embedContainer = document.getElementById('embed-container');
-        embedContainer.innerHTML = '<iframe src="https://brunysixlgames.netlify.app/games/amongus/" style="width:100%; height:600px; border:none;"></iframe>'; // Increased height to 600px
-
         var fullscreenEnterButton = document.getElementById('fullscreen-enter');
         var fullscreenExitButton = document.getElementById('fullscreen-exit');
 
@@ -254,7 +243,7 @@
         });
 
         // Add an event listener to the new button to redirect to another page
-        document.getElementById('new-button').addEventListener('click', function() {
+        document.getElementById('Return To Arcade').addEventListener('click', function() {
             window.location.href = '/arcade.html'; // Change URL to the desired page
         });
     </script>
