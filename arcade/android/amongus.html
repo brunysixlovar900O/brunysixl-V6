@@ -153,6 +153,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         footer {
@@ -172,6 +173,7 @@
             width: 50px;
             height: 50px;
             margin-right: 10px;
+            cursor: pointer;
         }
 
         .footer-content img:last-child {
@@ -184,28 +186,49 @@
         .fullscreen-button {
             background-color: #000;
             color: #fff;
-            border: none;
+            border: 2px solid #000;
             padding: 10px 20px;
             margin-top: 20px;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fullscreen-button:hover {
+            transform: scale(1.1);
+        }
+
+        #fullscreen-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        #fullscreen-enter {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <footer>
         <div class="footer-content">
-            <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
+            <a href="https://www.yourwebsite.com"><img src="/imgs/brunysixlgif.gif" alt="brunysixl"></a>
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
         </div>
-        <div id="embed-container"></div>
-        <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
-        <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
     </footer>
 
-    <script>
-        var embedContainer = document.getElementById('embed-container');
-        embedContainer.innerHTML = '<iframe src="https://brunysixlgames.netlify.app/games/amongus/" style="width:100%; height:400px; border:none;"></iframe>';
+    <div id="fullscreen-buttons">
+        <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+        <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+    </div>
 
+    <iframe src="https://brunysixlgames.netlify.app/games/amongus/" style="width:100%; height:100vh; border:none;"></iframe>
+
+    <script>
         var fullscreenEnterButton = document.getElementById('fullscreen-enter');
         var fullscreenExitButton = document.getElementById('fullscreen-exit');
 
