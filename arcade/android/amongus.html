@@ -185,11 +185,20 @@
             cursor: pointer;
             display: inline-block;
             margin-right: 10px; /* Added for spacing */
+            margin-bottom: 10px; /* Added for spacing */
         }
 
         /* Style for button hover effect */
         .fullscreen-button:hover, .custom-button:hover {
             transform: scale(1.1); /* Scale up on hover */
+        }
+
+        /* Center the buttons */
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -200,11 +209,13 @@
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
         </div>
         <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
-            <iframe src="https://brunysixlgames.netlify.app/games/index.html" style="width:100%; height:100%; border:none;"></iframe>
+            <iframe src="https://brunysixlgames.netlify.app/games/amongus/" style="width:100%; height:100%; border:none;"></iframe>
         </div>
-        <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
-        <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
-        <button id="new-button" class="custom-button">Return To Arcade</button> <!-- New button -->
+        <div id="button-container"> <!-- Container for the buttons -->
+            <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+            <button id="new-button" class="custom-button">Return To Arcade</button> <!-- New button -->
+        </div>
     </footer>
 
     <script>
@@ -243,7 +254,7 @@
         });
 
         // Add an event listener to the new button to redirect to another page
-        document.getElementById('Return To Arcade').addEventListener('click', function() {
+        document.getElementById('new-button').addEventListener('click', function() {
             window.location.href = '/arcade.html'; // Change URL to the desired page
         });
     </script>
