@@ -1,45 +1,16 @@
 <link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
-<title>IXL | Educational Videos</title>
+<title>IXL | Edu Videos</title>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-    <div id="loading">Loading...</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simulate a delay for loading content
-            setTimeout(function () {
-                document.getElementById("loading").style.display = "none";
-                document.body.style.opacity = 1;
-            }, 500); // Adjust the delay time (in milliseconds) as needed
-        });
-    </script>
-</body>
-</html>
-
-</html>
-
-
-<html lang="en">
+    <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Particle Background</title>
 <style>
     body {
         margin: 0;
         padding: 0;
         background-color: black;
-        overflow: hidden;
     }
 
     canvas {
@@ -57,7 +28,7 @@
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.documentElement.scrollHeight;
 
     let particlesArray;
 
@@ -97,7 +68,7 @@
         for (let i = 0; i < numberOfParticles; i++) {
             const size = Math.random() * 5 + 1;
             const x = Math.random() * (innerWidth - size * 2) + size;
-            const y = Math.random() * (innerHeight - size * 2) + size;
+            const y = Math.random() * (canvas.height - size * 2) + size;
             const directionX = (Math.random() - 0.5) * 0.5;
             const directionY = (Math.random() - 0.5) * 0.5;
             const color = 'white';
@@ -108,7 +79,7 @@
 
     function animate() {
         requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        ctx.clearRect(0, 0, innerWidth, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
@@ -120,7 +91,7 @@
 
     window.addEventListener('resize', function () {
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = document.documentElement.scrollHeight;
         init();
     });
 
