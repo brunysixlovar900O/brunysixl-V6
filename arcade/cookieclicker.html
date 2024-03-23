@@ -1,7 +1,36 @@
 <link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
 <title>IXL | Lesson</title>
 
-    <html lang="en">
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading...</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Simulate a delay for loading content
+            setTimeout(function () {
+                document.getElementById("loading").style.display = "none";
+                document.body.style.opacity = 1;
+            }, 500); // Adjust the delay time (in milliseconds) as needed
+        });
+    </script>
+</body>
+</html>
+
+ <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
