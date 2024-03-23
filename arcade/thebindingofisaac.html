@@ -1,35 +1,6 @@
 <link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
 <title>IXL | Lesson</title>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-    <div id="loading">Loading...</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simulate a delay for loading content
-            setTimeout(function () {
-                document.getElementById("loading").style.display = "none";
-                document.body.style.opacity = 1;
-            }, 500); // Adjust the delay time (in milliseconds) as needed
-        });
-    </script>
-</body>
-</html>
-
-
     <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -138,64 +109,132 @@
 </body>
 </html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
         }
-        .embed-container {
-            flex: 1;
+
+        footer {
+            background-color: rgba(18, 18, 18, 0.90);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative; /* Added for button positioning */
+        }
+
+        .footer-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
-        iframe {
-            z-index: 1;
+
+        .footer-content img:first-child {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
-        img {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            z-index: 2;
+
+        .footer-content img:last-child {
+            width: 140px;
+            height: 27.5px;
+            margin-left: 10px;
+        }
+
+        /* Style for the fullscreen button */
+        .fullscreen-button, .custom-button {
+            padding: 12px 22px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.2s;
+            display: inline-block;
+            margin-right: 10px; /* Added for spacing */
+            margin-bottom: 10px; /* Added for spacing */
+            transition: transform 0.1s, box-shadow 0.3s;
         }
-        img:hover {
-            transform: translateX(-50%) scale(1.2);
+
+        /* Style for button hover effect */
+        .fullscreen-button:hover, .custom-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
         }
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+
+        /* Center the buttons */
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <a href="/arcade.html">
-        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
-    </a>
-    <div class="embed-container">
-        <iframe src="https://brunysixlgames.netlify.app/games/thebindingofisaac/" width="1000" height="550"></iframe>
-    </div>
-    
+    <footer>
+        <div class="footer-content">
+            <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
+            <img src="/imgs/brunysixlfont.png" alt="brunysixl">
+        </div>
+        <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
+            <iframe src="https://brunysixlgames.netlify.app/games/thebindingofisaac/" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+        <div id="button-container"> <!-- Container for the buttons -->
+            <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+            <button id="new-button" class="custom-button">Retrun To Arcade</button> <!-- New button -->
+        </div>
+    </footer>
+
+    <script>
+        var fullscreenEnterButton = document.getElementById('fullscreen-enter');
+        var fullscreenExitButton = document.getElementById('fullscreen-exit');
+
+        fullscreenEnterButton.addEventListener('click', function() {
+            var element = document.documentElement;
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { /* Firefox */
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE/Edge */
+                element.msRequestFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'none';
+            fullscreenExitButton.style.display = 'block';
+        });
+
+        fullscreenExitButton.addEventListener('click', function() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { /* Firefox */
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE/Edge */
+                document.msExitFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'block';
+            fullscreenExitButton.style.display = 'none';
+        });
+
+        // Add an event listener to the new button to redirect to another page
+        document.getElementById('new-button').addEventListener('click', function() {
+            window.location.href = '/arcade.html'; // Change URL to the desired page
+        });
+    </script>
 </body>
 </html>
 
-</html>
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
