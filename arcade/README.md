@@ -1,1 +1,1 @@
-steal any of me game embeds and youre gay asf
+steal any of my game embeds and youre gay asf
