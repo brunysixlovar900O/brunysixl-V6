@@ -108,62 +108,56 @@
 </body>
 </html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .embed-container {
-            flex: 1;
-            display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        #container {
             position: relative;
+            text-align: center;
         }
-        iframe {
-            z-index: 1;
-        }
-        img {
+
+        #image {
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             width: 40px;
             height: 40px;
-            z-index: 2;
-            cursor: pointer;
-            transition: transform 0.2s;
+            z-index: 1;
+            transition: transform 0.3s;
         }
-        img:hover {
-            transform: translateX(-50%) scale(1.2);
+
+        #image:hover {
+            transform: translate(-50%, -50%) scale(1.1);
         }
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+
+        #iframe {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border: none;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
-    <a href="/arcade.html">
-        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
-    </a>
-    <div class="embed-container">
-        <iframe src="/games/1on1soccer" width="1000" height="550"></iframe>
+    <div id="container">
+        <a href="/arcade.html.html"><img id="image" src="/imgs/brunysixlgif.gif" alt="Clickable Image"></a>
+        <iframe id="iframe" src="/games/1on1soccer"></iframe>
     </div>
-   
 </body>
 </html>
+
 
 </html>
 <link rel="icon" href="/imgs/brunysixlgif.gif">
