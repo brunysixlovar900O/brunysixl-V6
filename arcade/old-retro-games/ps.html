@@ -138,7 +138,7 @@
     position: relative;
     width: 80%;
     max-width: 800px;
-    height: 60vh;
+    height: 80vh; /* Increased height */
     margin-top: 20px;
     overflow: hidden;
   }
@@ -152,18 +152,24 @@
   #image-link {
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
+  }
+
+  #image-link img {
+    width: 40px;
+    height: 40px;
   }
 </style>
 </head>
 <body>
 <div id="container">
-  <a href="/arcade.html" id="image-link">
-    <img src="/imgs/brunysixlgif.gif" alt="Clickable Image">
-  </a>
   <div id="iframe-container">
-    <iframe src="https://brunysixlgames.netlify.app/games/pokemonsapphire"></iframe>
+    <a href="/arcade.html" id="image-link">
+      <img src="/imgs/brunysixlgif.gif" alt="Clickable Image">
+    </a>
+    <iframe src="https://brunysixlgames.netlify.app/games/pokemonsapphire/"></iframe>
   </div>
 </div>
 </body>
