@@ -150,11 +150,11 @@
     transform: translateX(-50%);
     cursor: pointer;
     transition: transform 0.3s; /* Add transition for smooth effect */
+    z-index: 1; /* Ensure the image is on top of the iframe */
   }
 
   #image-link:hover {
     transform: translateX(-50%) scale(1.1); /* Scale the image up */
-    z-index: 1; /* Bring the image to the top layer */
   }
 
   #image-link img {
@@ -165,13 +165,14 @@
 </head>
 <body>
 <div id="iframe-container">
+  <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer"></iframe>
   <a href="/arcade.html" id="image-link">
     <img src="/imgs/brunysixlgif.gif" alt="Clickable Image">
   </a>
-  <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer"></iframe>
 </div>
 </body>
 </html>
+
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
