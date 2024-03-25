@@ -112,13 +112,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            
         }
 
         footer {
@@ -126,7 +124,6 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            
         }
 
         .footer-content {
@@ -147,8 +144,8 @@
             margin-left: 10px;
         }
 
-        /* Style for the fullscreen button */
-        .fullscreen-button, .custom-button {
+        /* Style for the new button */
+        .custom-button {
             padding: 12px 22px;
             background-color: black;
             color: white;
@@ -162,17 +159,28 @@
         }
 
         /* Style for button hover effect */
-        .fullscreen-button:hover, .custom-button:hover {
+        .custom-button:hover {
             transform: scale(1.1); /* Scale up on hover */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
         }
 
-        /* Center the buttons */
+        /* Center the button */
         #button-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
+        }
+
+        /* Style for the iframe */
+        #embed-container {
+            height: calc(100vh - 127px); /* Adjusted height to fit within the page */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -182,51 +190,15 @@
             <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
         </div>
-        <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
-            <iframe src="https://brunysixlgames.netlify.app/games/pokemonruby/" style="width:100%; height:100%; border:none;"></iframe>
+        <div id="embed-container"> <!-- Container for the iframe -->
+            <iframe src="https://brunysixlgames.netlify.app/games/pokemonruby/"></iframe>
         </div>
-        <div id="button-container"> <!-- Container for the buttons -->
-            <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
-            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+        <div id="button-container"> <!-- Container for the button -->
             <button id="new-button" class="custom-button">Retrun To Arcade</button> <!-- New button -->
         </div>
     </footer>
 
     <script>
-        var fullscreenEnterButton = document.getElementById('fullscreen-enter');
-        var fullscreenExitButton = document.getElementById('fullscreen-exit');
-
-        fullscreenEnterButton.addEventListener('click', function() {
-            var element = document.documentElement;
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { /* Firefox */
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { /* IE/Edge */
-                element.msRequestFullscreen();
-            }
-
-            fullscreenEnterButton.style.display = 'none';
-            fullscreenExitButton.style.display = 'block';
-        });
-
-        fullscreenExitButton.addEventListener('click', function() {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { /* Firefox */
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { /* IE/Edge */
-                document.msExitFullscreen();
-            }
-
-            fullscreenEnterButton.style.display = 'block';
-            fullscreenExitButton.style.display = 'none';
-        });
-
         // Add an event listener to the new button to redirect to another page
         document.getElementById('new-button').addEventListener('click', function() {
             window.location.href = '/arcade.html'; // Change URL to the desired page
