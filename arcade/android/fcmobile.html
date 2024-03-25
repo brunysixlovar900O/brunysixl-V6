@@ -130,8 +130,9 @@
   }
 
   #iframe-container {
+    position: relative;
     width: 90%;
-    max-width: 1200px; /* Adjust the max-width as needed */
+    max-width: 1200px;
     height: 80vh;
     overflow: hidden;
   }
@@ -148,6 +149,12 @@
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
+    transition: transform 0.3s; /* Add transition for smooth effect */
+  }
+
+  #image-link:hover {
+    transform: translateX(-50%) scale(1.1); /* Scale the image up */
+    z-index: 1; /* Bring the image to the top layer */
   }
 
   #image-link img {
@@ -161,11 +168,10 @@
   <a href="/arcade.html" id="image-link">
     <img src="/imgs/brunysixlgif.gif" alt="Clickable Image">
   </a>
-  <iframe src="link"></iframe>
+  <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer"></iframe>
 </div>
 </body>
 </html>
-
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
