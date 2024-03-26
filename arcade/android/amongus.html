@@ -1,16 +1,49 @@
+<link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
+<title id="dynamic-title">IXL | Dashboard</title>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading...</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Simulate a delay for loading content
+            setTimeout(function () {
+                document.getElementById("loading").style.display = "none";
+                document.body.style.opacity = 1;
+            }, 500); // Adjust the delay time (in milliseconds) as needed
+        });
+    </script>
+</body>
+</html>
+
+
+<html>
+<head>
+  <link href='brunysixl.css' rel='stylesheet'>
+</head>
+<body>
 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
-<title>IXL | Lesson</title>
 <style>
     body {
         margin: 0;
         padding: 0;
         background-color: black;
-        overflow: hidden;
     }
 
     canvas {
@@ -28,7 +61,7 @@
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = document.documentElement.scrollHeight;
 
     let particlesArray;
 
@@ -68,7 +101,7 @@
         for (let i = 0; i < numberOfParticles; i++) {
             const size = Math.random() * 5 + 1;
             const x = Math.random() * (innerWidth - size * 2) + size;
-            const y = Math.random() * (innerHeight - size * 2) + size;
+            const y = Math.random() * (canvas.height - size * 2) + size;
             const directionX = (Math.random() - 0.5) * 0.5;
             const directionY = (Math.random() - 0.5) * 0.5;
             const color = 'white';
@@ -79,7 +112,7 @@
 
     function animate() {
         requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        ctx.clearRect(0, 0, innerWidth, canvas.height);
 
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
@@ -91,7 +124,7 @@
 
     window.addEventListener('resize', function () {
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = document.documentElement.scrollHeight;
         init();
     });
 
@@ -109,58 +142,97 @@
 </body>
 </html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
+            font-family: Arial, sans-serif;
+            position: relative;
             min-height: 100vh;
         }
-        .embed-container {
-            flex: 1;
+
+        footer {
+            background-color: rgba(18, 18, 18, 0.90);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
-        iframe {
-            z-index: 1;
+
+        .footer-content img:first-child {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
-        img {
+
+        .footer-content img:last-child {
+            width: 140px;
+            height: 27.5px;
+            margin-left: 10px;
+        }
+
+        button {
+            padding: 12px 22px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            transition: transform 0.1s, box-shadow 0.3s;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .embed-container {
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            z-index: 2;
-            cursor: pointer;
-            transition: transform 0.2s;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            z-index: -1; /* Push the embedded page behind the footer */
         }
-        img:hover {
-            transform: translateX(-50%) scale(1.2);
-        }
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <a href="/arcade.html">
-        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
-    </a>
+    <footer>
+        <div class="footer-content">
+            <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
+            <img src="/imgs/brunysixlfont.png" alt="brunysixl">
+        </div>
+    </footer>
+
+    <footer>
+        <button onclick="window.location.href='/arcade.html'">Return</button>
+    </footer>
+
     <div class="embed-container">
-        <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/innersloth-llc/4047/among-us" width="1000" height="550"></iframe>
+        <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/innersloth-llc/4047/among-us"></iframe>
+    </div>
+</body>
+</html>
+
+
     </div>
     
 </body>
