@@ -109,59 +109,87 @@
 </body>
 </html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
         }
-        .embed-container {
-            flex: 1;
+
+        footer {
+            background-color: rgba(18, 18, 18, 0.90);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
-        iframe {
-            z-index: 1;
+
+        .footer-content img:first-child {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
         }
-        img {
+
+        .footer-content img:last-child {
+            width: 140px;
+            height: 27.5px;
+            margin-left: 10px;
+        }
+
+        button {
+            padding: 12px 22px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            transition: transform 0.1s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .embed-container {
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            z-index: 2;
-            cursor: pointer;
-            transition: transform 0.2s;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
         }
-        img:hover {
-            transform: translateX(-50%) scale(1.2);
-        }
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <a href="/arcade.html">
-        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
-    </a>
+    <footer>
+        <button onclick="window.location.href='/arcade.html'">Return</button>
+        <div class="footer-content">
+            <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
+            <img src="/imgs/brunysixlfont.png" alt="brunysixl">
+        </div>
+    </footer>
+
     <div class="embed-container">
-        <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer" width="1000" height="550"></iframe>
+        <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/electronic-arts/1353/ea-sports-fc-mobile-24-soccer"></iframe>
     </div>
+</body>
+</html>
+
     
 </body>
 </html>
