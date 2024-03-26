@@ -1,5 +1,5 @@
 <link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
-<title>IXL | Message Us</title>
+<title>IXL | Language</title>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +29,11 @@
 </body>
 </html>
 
-
-    <html lang="en">
+   <!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Particle Background</title>
 <style>
     body {
         margin: 0;
@@ -138,112 +137,87 @@
 </body>
 </html>
 
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .embed-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        iframe {
-            z-index: 1;
-        }
-        img {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            z-index: 2;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        img:hover {
-            transform: translateX(-50%) scale(1.2);
-        }
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevent scrolling */
+}
+#iframe-container {
+    width: 80%;
+    height: 80vh; /* Use 70% of the viewport height */
+    overflow: hidden;
+    border: none;
+    position: relative;
+}
+#iframe-container iframe {
+    width: 90%; 
+    height: 90%; 
+    border: white;
+    margin: 0 auto; 
+}
+#nav-image {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+#nav-image:hover {
+    transform: scale(1.1) translateX(-50%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  text-align: center;
+}
+
+button {
+  padding: 12px 22px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: transform 0.1s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+</style>
 </head>
 <body>
-    <a href="/">
-        <img src="/imgs/brunysixlgif.gif" alt="40x40 image">
-    </a>
-    <div class="embed-container">
-        <iframe src="https://e.widgetbot.io/channels/1212536662043791450/1212543243817058394" width="1000" height="550"></iframe>
+    <a href="/"><img id="nav-image" src="/imgs/brunysixlgif.gif" alt="Navigation Image"></a>
+    <div id="iframe-container">
+        <iframe src="https://e.widgetbot.io/channels/1212536662043791450/1212543243817058394" title="Embedded Page"></iframe>
+    <h3>Join The Discord!</h3>
+	<button onclick="window.open('https://discord.gg/B9g34nd7yy');">Join The Discord</button>
     </div>
-   <footer>
-       <h5>Join The Discord Server!</h5>
-      <button onclick="window.open('https://discord.gg/hw8XtMQUKm');">🗨️Discord</button>
-   </footer>
 </body>
 </html>
 
- <style>
-    p{
-      color: white
-    }
-	    h6{
-      color: white
-    }
-    h2{
-      color: white
-    }
-    h5{
-      color: white;
-    }
-    h4{
-      color: white;
-    }
-    body{
-      text-align: center;
-    }
-    a{
-      text-align: left;
-    }
-	button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: black;
-    border: 2px solid white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
-    border-radius: 10px; /* Rounded corners */
-}
-
-button:hover,
-button:focus {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7); /* Glow effect on hover or focus */
-}
-
-  </style>
-
 <link rel="icon" href="/imgs/brunysixlgif.gif">
-  <meta property="og:title" content="brunysixl. | Discord">
+  <meta property="og:title" content="brunysixl. | Proxys">
   <meta name="theme-color" content="#000000">
   <meta name="msapplication-TileColor" content="#000000">
   <meta property="og:image" content="/imgs/brunysixlgif.gif">
