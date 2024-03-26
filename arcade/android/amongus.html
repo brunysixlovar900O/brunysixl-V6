@@ -159,9 +159,7 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            position: absolute;
             width: 100%;
-            bottom: 0;
         }
 
         .footer-content {
@@ -197,6 +195,16 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
+        .bottom-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.90);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
         .embed-container {
             position: absolute;
             top: 50%;
@@ -204,7 +212,7 @@
             transform: translate(-50%, -50%);
             width: 80%;
             height: 80%;
-            z-index: -1; /* Push the embedded page behind the footer */
+            z-index: -1;
         }
 
         iframe {
@@ -222,12 +230,12 @@
         </div>
     </footer>
 
-    <footer>
+    <div class="bottom-footer">
         <button onclick="window.location.href='/arcade.html'">Return</button>
-    </footer>
+    </div>
 
     <div class="embed-container">
-        <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/innersloth-llc/4047/among-us"></iframe>
+        <iframe src="link"></iframe>
     </div>
 </body>
 </html>
