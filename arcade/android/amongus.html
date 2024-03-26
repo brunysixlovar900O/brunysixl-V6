@@ -3,40 +3,6 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-    <div id="loading">Loading...</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simulate a delay for loading content
-            setTimeout(function () {
-                document.getElementById("loading").style.display = "none";
-                document.body.style.opacity = 1;
-            }, 500); // Adjust the delay time (in milliseconds) as needed
-        });
-    </script>
-</body>
-</html>
-
-
-<html>
-<head>
-  <link href='brunysixl.css' rel='stylesheet'>
-</head>
-<body>
-
-<html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -150,8 +116,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            position: relative;
-            min-height: 100vh;
+            min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+            display: flex;
+            flex-direction: column;
         }
 
         footer {
@@ -196,13 +163,12 @@
         }
 
         .bottom-footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             background-color: rgba(18, 18, 18, 0.90);
             color: white;
             text-align: center;
             padding: 20px 0;
+            width: 100%;
+            margin-top: auto; /* Push the footer to the bottom of the page */
         }
 
         .embed-container {
@@ -235,18 +201,11 @@
     </div>
 
     <div class="embed-container">
-        <iframe src="link"></iframe>
+        <iframe src="/path/to/your/embedded/page.html"></iframe>
     </div>
 </body>
 </html>
 
-
-    </div>
-    
-</body>
-</html>
-
-</html>
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Arcade Game">
