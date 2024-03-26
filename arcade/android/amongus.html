@@ -115,7 +115,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-   body {
+  
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,15 +131,16 @@
 }
 #iframe-container {
     width: 80%;
-    height: 80vh; /* Use 80% of the viewport height */
+    height: 60vh; /* Use 60% of the viewport height */
     overflow: hidden;
     border: none;
     position: relative;
 }
 #iframe-container iframe {
-    width: 100%;
+    width: 80%; /* Use 80% of the container width */
     height: 100%;
     border: none;
+    margin: 0 auto; /* Center the iframe horizontally */
 }
 #nav-image {
     position: absolute;
