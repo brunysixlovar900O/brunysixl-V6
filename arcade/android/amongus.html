@@ -111,6 +111,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <style>
         body {
             margin: 0;
@@ -171,11 +172,6 @@
             align-items: center;
             margin-top: 20px;
         }
-
-        /* Adjusted height to fit within the page */
-        #embed-container {
-            height: calc(100vh - 400px);
-        }
     </style>
 </head>
 <body>
@@ -184,20 +180,17 @@
             <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
         </div>
-        <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
-            <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/innersloth-llc/4047/among-us" style="width:100%; height:100%; border:none;"></iframe>
-        </div>
-        <div id="button-container"> <!-- Container for the buttons -->
-             <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
-            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
-            <button id="new-button" class="custom-button">Return Home</button> <!-- New button -->
-        </div>
     </footer>
+    
+    <div id="embed-container" style="height: calc(100vh - 217px);"> <!-- Adjusted height to make the iframe smaller and fit within the page -->
+        <iframe src="/about-me.html" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
 
-    <!-- Bottom footer -->
     <footer>
-        <div id="bottom-footer-content">
-            <button id="bottom-button" class="custom-button">Bottom Button</button>
+        <div id="button-container"> <!-- Container for the buttons -->
+            <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+            <button id="new-button" class="custom-button">Retrun Home</button> <!-- New button -->
         </div>
     </footer>
 
@@ -238,13 +231,7 @@
 
         // Add an event listener to the new button to redirect to another page
         document.getElementById('new-button').addEventListener('click', function() {
-            window.location.href = '/arcade.html'; // Change URL to the desired page
-        });
-
-        // Add an event listener to the bottom button to do something
-        document.getElementById('bottom-button').addEventListener('click', function() {
-            // Add functionality here
-            alert('Bottom button clicked!');
+            window.location.href = '/'; // Change URL to the desired page
         });
     </script>
 </body>
