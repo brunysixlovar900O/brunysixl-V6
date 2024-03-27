@@ -123,6 +123,7 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            position: relative; /* Added for button positioning */
         }
 
         .footer-content {
@@ -143,34 +144,37 @@
             margin-left: 10px;
         }
 
-        button {
+        /* Style for the fullscreen button */
+        .fullscreen-button, .custom-button {
             padding: 12px 22px;
             background-color: black;
             color: white;
             border: 1px solid white;
             border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 10px; /* Added for spacing */
+            margin-bottom: 10px; /* Added for spacing */
             transition: transform 0.1s, box-shadow 0.3s;
-            margin-left: 10px; /* Add this line */
         }
 
-        button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        /* Style for button hover effect */
+        .fullscreen-button:hover, .custom-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
         }
 
-        .embed-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
+        /* Center the buttons */
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Adjusted height to fit within the page */
+        #embed-container {
+            height: calc(100vh - 400px);
         }
     </style>
 </head>
@@ -179,13 +183,70 @@
         <div class="footer-content">
             <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
             <img src="/imgs/brunysixlfont.png" alt="brunysixl">
-            <button onclick="window.location.href='/arcade.html'">Return</button>
+        </div>
+        <div id="embed-container" style="height: calc(100vh - 157px);"> <!-- Adjusted height to fit within the page -->
+            <iframe src="https://brunysixl.plantah2oasis.cl/embed?search=https://now.us/play/innersloth-llc/4047/among-us" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+        <div id="button-container"> <!-- Container for the buttons -->
+             <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+            <button id="new-button" class="custom-button">Return Home</button> <!-- New button -->
         </div>
     </footer>
 
-    <div class="embed-container">
-        <iframe src="link"></iframe>
-    </div>
+    <!-- Bottom footer -->
+    <footer>
+        <div id="bottom-footer-content">
+            <button id="bottom-button" class="custom-button">Bottom Button</button>
+        </div>
+    </footer>
+
+    <script>
+        var fullscreenEnterButton = document.getElementById('fullscreen-enter');
+        var fullscreenExitButton = document.getElementById('fullscreen-exit');
+
+        fullscreenEnterButton.addEventListener('click', function() {
+            var element = document.documentElement;
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { /* Firefox */
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE/Edge */
+                element.msRequestFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'none';
+            fullscreenExitButton.style.display = 'block';
+        });
+
+        fullscreenExitButton.addEventListener('click', function() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { /* Firefox */
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE/Edge */
+                document.msExitFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'block';
+            fullscreenExitButton.style.display = 'none';
+        });
+
+        // Add an event listener to the new button to redirect to another page
+        document.getElementById('new-button').addEventListener('click', function() {
+            window.location.href = '/arcade.html'; // Change URL to the desired page
+        });
+
+        // Add an event listener to the bottom button to do something
+        document.getElementById('bottom-button').addEventListener('click', function() {
+            // Add functionality here
+            alert('Bottom button clicked!');
+        });
+    </script>
 </body>
 </html>
 
