@@ -1,35 +1,6 @@
 <link rel="icon" type="image/png" href="/imgs/brunysixlfavicon.png">
-<title>IXL | Contact Us</title>
+<title id="dynamic-title">IXL | Contact</title>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-    <div id="loading">Loading...</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simulate a delay for loading content
-            setTimeout(function () {
-                document.getElementById("loading").style.display = "none";
-                document.body.style.opacity = 1;
-            }, 500); // Adjust the delay time (in milliseconds) as needed
-        });
-    </script>
-</body>
-</html>
-
-   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -137,84 +108,136 @@
 </body>
 </html>
 
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Use the full height of the viewport */
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
-    text-align: center;
-    overflow: hidden; /* Prevent scrolling */
-}
-#iframe-container {
-    width: 80%;
-    height: 80vh; /* Use 70% of the viewport height */
-    overflow: hidden;
-    border: none;
-    position: relative;
-}
-#iframe-container iframe {
-    width: 90%; 
-    height: 90%; 
-    border: white;
-    margin: 0 auto; 
-}
-#nav-image {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-#nav-image:hover {
-    transform: scale(1.1) translateX(-50%);
-}
 
-h1, h2, h3, h4, h5, h6 {
-  color: white;
-  text-align: center;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-button {
-  padding: 12px 22px;
-  background-color: black;
-  color: white;
-  border: 1px solid white;
-  border-radius: 10px;
-  transition: transform 0.1s, box-shadow 0.3s;
-}
+        footer {
+            background-color: rgba(18, 18, 18, 0.90);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative; /* Added for button positioning */
+        }
 
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-</style>
+        .footer-content img:first-child {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .footer-content img:last-child {
+            width: 140px;
+            height: 27.5px;
+            margin-left: 10px;
+        }
+
+        /* Style for the fullscreen button */
+        .fullscreen-button, .custom-button {
+            padding: 12px 22px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 10px; /* Added for spacing */
+            margin-bottom: 10px; /* Added for spacing */
+            transition: transform 0.1s, box-shadow 0.3s;
+        }
+
+        /* Style for button hover effect */
+        .fullscreen-button:hover, .custom-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+        }
+
+        /* Center the buttons */
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <a href="/"><img id="nav-image" src="/imgs/brunysixlgif.gif" alt="Navigation Image"></a>
-    <div id="iframe-container">
-        <iframe src="https://e.widgetbot.io/channels/1212536662043791450/1212543243817058394" title="Embedded Page"></iframe>
-    <h3>Join The Discord!</h3>
-	<button onclick="window.open('https://discord.gg/B9g34nd7yy');">Join The Discord</button>
+    <footer>
+        <div class="footer-content">
+            <img src="/imgs/brunysixlgif.gif" alt="brunysixl">
+            <img src="/imgs/brunysixlfont.png" alt="brunysixl">
+        </div>
+    </footer>
+    
+    <div id="embed-container" style="height: calc(100vh - 267px);"> <!-- Adjusted height to make the iframe even smaller and fit within the page -->
+        <iframe src="link" style="width:100%; height:100%; border:none;"></iframe>
     </div>
+
+    <footer>
+        <div id="button-container"> <!-- Container for the buttons -->
+            <button id="fullscreen-enter" class="fullscreen-button">Fullscreen</button>
+            <button id="fullscreen-exit" class="fullscreen-button" style="display: none;">Exit Fullscreen</button>
+            <button id="new-button" class="custom-button">Return</button> <!-- New button -->
+	    <button onclick="window.open('https://discord.gg/B9g34nd7yy');">Join The Discord</button>	
+        </div>
+    </footer>
+
+    <script>
+        var fullscreenEnterButton = document.getElementById('fullscreen-enter');
+        var fullscreenExitButton = document.getElementById('fullscreen-exit');
+
+        fullscreenEnterButton.addEventListener('click', function() {
+            var element = document.documentElement;
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { /* Firefox */
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE/Edge */
+                element.msRequestFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'none';
+            fullscreenExitButton.style.display = 'block';
+        });
+
+        fullscreenExitButton.addEventListener('click', function() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { /* Firefox */
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE/Edge */
+                document.msExitFullscreen();
+            }
+
+            fullscreenEnterButton.style.display = 'block';
+            fullscreenExitButton.style.display = 'none';
+        });
+
+        // Add an event listener to the new button to redirect to another page
+        document.getElementById('new-button').addEventListener('click', function() {
+            window.location.href = '/arcade.html'; // Change URL to the desired page
+        });
+    </script>
 </body>
 </html>
+
 
 <link rel="icon" href="/imgs/brunysixlgif.gif">
   <meta property="og:title" content="brunysixl. | Discord">
